@@ -10,14 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.garyzhou.snaphistory.Main2Activity">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/historyFact" />
-
     <Button
         android:text="Back"
         android:layout_width="wrap_content"
@@ -26,4 +18,18 @@
         android:layout_alignParentStart="true"
         android:id="@+id/back"
         android:onClick="returnToMain"/>
+
+    <TextView
+        android:text="Memorial to William Clark Sayles
+It was donated by his father William F. Sayles
+On June 14, 1878 his father wrote to President Robinson offering $50,000 for a building “which shall be exclusively and forever devoted to lectures and recitations, and to meetings on academic occasions.”
+Sayles Hall, designed by Alpheus C. Morse, is of the Romanesque style. The front section, 35 by 75 feet, is two stories high, with a central tower one story higher topped by a hipped roof and dormer windows, and was designed to house recitation rooms. The back, or east, section, which has only one story with a gabled roof, housed a large meeting hall, which was soon put to use for alumni dinners. The exterior is of rock-faced red Westerly granite trimmed with reddish-brown Longmeadow stone, with a slated roof ornamented with red bands. The building soon began to fill another need, as the baseball team found it a convenient place to train in the off-season. In 1912 the Department of Economics moved from the basement of Sayles Hall into the former library (Robinson Hall), making space for the Department of Geology.
+"
+        android:scrollbars = "vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saylesHall"
+        android:layout_below="@+id/back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="226dp" />
 </RelativeLayout>

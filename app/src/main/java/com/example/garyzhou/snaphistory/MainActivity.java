@@ -26,9 +26,12 @@ import com.google.android.gms.location.LocationServices;
 
 
 public class MainActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener {
-    public final static String HISTORIC_FACT = "com.example.garyzhou.snaphistory";
+    //public final static String LOCATION_INFO = "com.example.garyzhou.snaphistory";
+
+
     GoogleApiClient mGoogleApiClient;
     TextView loc;
+    Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     1);
         }
-        Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         loc.setText(location.toString());
     }
 
@@ -118,8 +121,11 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     }
 
     public void seeHistory(View view) {
-        Intent intent = new Intent(this,Main2Activity.class);
-        intent.putExtra(HISTORIC_FACT, "Here are the facts!");
-        startActivity(intent);
+
+//        intent.putExtra(LOCATION_INFO, new float[]{(float)location.getLatitude(),(float)location.getLongitude()});
+        if(location.getLatitude()>0&&location.getLongitude()>0) {
+            Intent intent = new Intent(this, Main2Activity.class);
+            startActivity(intent);
+        }
     }
 }
