@@ -1,6 +1,7 @@
 package com.example.garyzhou.snaphistory;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.google.android.gms.location.LocationServices;
 
 
 public class MainActivity extends AppCompatActivity implements ConnectionCallbacks, OnConnectionFailedListener {
+    public final static String HISTORIC_FACT = "com.example.garyzhou.snaphistory";
     GoogleApiClient mGoogleApiClient;
     TextView loc;
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Intent intent = getIntent();
         loc = (TextView) findViewById(R.id.loc);
         loc.setText("LOCATION");
         if (mGoogleApiClient == null) {
@@ -112,5 +115,11 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     @Override
     public void onConnectionSuspended(int i) {
 
+    }
+
+    public void seeHistory(View view) {
+        Intent intent = new Intent(this,Main2Activity.class);
+        intent.putExtra(HISTORIC_FACT, "Here are the facts!");
+        startActivity(intent);
     }
 }
